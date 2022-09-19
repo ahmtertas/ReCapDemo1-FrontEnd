@@ -3,5 +3,6 @@ export interface RentalDto {
     firstName:string,
     lastName:string,
     rentDate:Date,
-    returnDate:Date
+    returnDate:Date,
+    modelName:string
 }

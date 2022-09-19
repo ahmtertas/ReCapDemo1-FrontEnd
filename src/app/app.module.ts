@@ -10,6 +10,10 @@ import { ColorComponent } from './components/color/color.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { CarImageComponent } from './components/car-image/car-image.component';
+import { OneCarDetailComponent } from './components/one-car-detail/one-car-detail.component';
+import { CardetaildtoComponent } from './components/cardetaildto/cardetaildto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { RentalComponent } from './components/rental/rental.component';
     ColorComponent,
     NaviComponent,
     CustomerComponent,
-    RentalComponent  
+    RentalComponent,
+    CarImageComponent,
+    OneCarDetailComponent,
+    CardetaildtoComponent  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

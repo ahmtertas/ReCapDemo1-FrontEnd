@@ -1,10 +1,15 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Color</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let color of colors">
-    <td>{{ color.colorName }}</td>
-  </tr>
-</table>
+<br>
+<ul class="list-group">
+    <li class="list-group-item text-center text-white bg-dark" 
+    >COLORS</li>
+    <li [class]="getCurrentAllColorClass()" 
+    routerLink = "/cardetails">All Cars</li>
+    <li class="list-group-item bg-light" 
+     (click) = "setCurrentColor(color)"
+    routerLink = "/cardetails/color/{{color.colorId}}"      
+    *ngFor = "let color of colors"
+    [class] = "getCurrentColorClass(color)"
+    class="form-check-label">
+      {{color.colorName}}
+    </li>
+  </ul>

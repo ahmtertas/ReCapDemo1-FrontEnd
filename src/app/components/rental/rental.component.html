@@ -6,6 +6,7 @@
     <thead>
         <tr>
             <th>Brand</th>
+            <th>Model Name</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Rent Date</th>
@@ -14,6 +15,7 @@
     </thead>
     <tr *ngFor="let rental of rentalDtos">
         <td>{{rental.brandName}}</td>
+        <td>{{rental.modelName}}</td>
         <td>{{rental.firstName}}</td>
         <td>{{rental.lastName}}</td>
         <td>{{rental.rentDate}}</td>

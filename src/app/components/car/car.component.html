@@ -3,19 +3,24 @@
 </div>
 <table *ngIf="dataLoaded!=false" class="table">
     <thead>
+      <h5>Car List</h5>
         <tr>
             <th>Car Id</th>
             <th>Brand</th>
+            <th>Model Name</th>
             <th>Color</th>
-            <th>Model</th>
+            <th>Model Year</th>
+            <th>Gear</th>
             <th>DailyPrice</th>
         </tr>
     </thead>
   <tr *ngFor="let car of cars">
     <td>{{ car.id }}</td>
     <td>{{ car.brandName }}</td>
+    <td>{{ car.modelName }}</td>
     <td>{{ car.colorName }}</td>
     <td>{{ car.modelYear }}</td>
+    <td>{{ car.gear }}</td>
     <td>{{ car.dailyPrice }}</td>
   </tr>
 </table>
