@@ -1,15 +1,27 @@
-<br>
+<br />
 <ul class="list-group">
-    <li class="list-group-item text-center text-white bg-dark" 
-    >BRANDS</li>
-    <li [class]="getCurrentAllBrandClass()" 
-    routerLink = "/cardetails">All Cars</li>
-    <li class="list-group-item bg-light" 
-     (click) = "setCurrentBrand(brand)"
-    routerLink = "/cardetails/brand/{{brand.brandId}}"      
-    *ngFor = "let brand of brands"
-    [class] = "getCurrentBrandClass(brand)"
-    class="form-check-label">
-      {{brand.brandName}}
-    </li>
-  </ul>
+  <li class="list-group-item text-center text-white bg-dark">BRANDS</li>
+  <div class="mb-3">
+    <label for="filterText" class="form-label"></label>
+    <input
+      [(ngModel)]="filterText"
+      type="text"
+      class="form-control"
+      id="filterText"
+      placeholder="input"
+    />
+  </div>
+  <li [class]="getCurrentAllBrandClass()" routerLink="/cardetails">
+    All Brands
+  </li>
+  <li
+    class="list-group-item bg-light"
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cardetails/brand/{{ brand.brandId }}"
+    *ngFor="let brand of brands | brandFilterPipe: filterText"
+    [class]="getCurrentBrandClass(brand)"
+    class="form-check-label"
+  >
+    {{ brand.brandName }}
+  </li>
+</ul>

@@ -2,14 +2,19 @@
 <ul class="list-group">
     <li class="list-group-item text-center text-white bg-dark" 
     >COLORS</li>
+    <div class="mb-3">
+      <label for="filterText" class="form-label"></label>
+      <input [(ngModel)]="filterText" type="text" class="form-control" id="filterText" placeholder="input">
+    </div>
     <li [class]="getCurrentAllColorClass()" 
-    routerLink = "/cardetails">All Cars</li>
+    routerLink = "/cardetails">All Colors</li>
     <li class="list-group-item bg-light" 
      (click) = "setCurrentColor(color)"
     routerLink = "/cardetails/color/{{color.colorId}}"      
-    *ngFor = "let color of colors"
+    *ngFor = "let color of colors | colorFilterPipe:filterText"
     [class] = "getCurrentColorClass(color)"
     class="form-check-label">
       {{color.colorName}}
     </li>
   </ul>
+  

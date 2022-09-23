@@ -19,7 +19,9 @@ export class CardetaildtoComponent implements OnInit {
 
   carDetailDtos:Car[] = [];
   dataLoaded =  false;
+  filterText=""
   crId:number = 2;
+  
   constructor(
     private carDetailDtoService:CarService,
     private activatedRoute:ActivatedRoute

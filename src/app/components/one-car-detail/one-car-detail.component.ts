@@ -10,11 +10,11 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class OneCarDetailComponent implements OnInit {
 
-  oneCarDetailDto:Car[]= [];
+  singleCarDetails:Car[]
 
   dataLoaded =  false;
   constructor(
-    private carDetailDtoService:CarService,
+    private carService:CarService,
     private activatedRoute:ActivatedRoute
   ) { }
   ngOnInit(): void {
@@ -26,8 +26,8 @@ export class OneCarDetailComponent implements OnInit {
   }
 
   getCarDetailByCarId(carId:number){
-    this.carDetailDtoService.getCarDetailsByCarId(carId).subscribe(response => {
-      this.oneCarDetailDto = response.data;
+    this.carService.getCarDetailByCarId(carId).subscribe(response => {
+      this.singleCarDetails = response.data;
     })
   }
 

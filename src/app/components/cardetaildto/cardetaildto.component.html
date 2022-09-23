@@ -1,17 +1,49 @@
-
-<div  class="row d-flex pt-5 ps-5">
-  <div 
-    class="card col-3 m-2 me-5 bg-dark p-1"
-    *ngFor="let carDetailDto of carDetailDtos"
-    
+<div class="row d-flex pt-5 ps-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="mb-3 me-5">
+        <input
+          [(ngModel)]="filterText"
+          type="text"
+          class="form-control"
+          id="filterText"
+          placeholder="model name"
+        />
+      </div>
+    </div>
+    <div class="row"><app-filter-car></app-filter-car></div>
+  </div>
+  <p></p>
+  <div
+    class="card col-3 m-2 me-5 bg-warning p-1"
+    *ngFor="let carDetailDto of carDetailDtos | filterPipe: filterText"
   >
-  <img src= "https://localhost:44383/uploads/images/{{carDetailDto.imagePath}}"  height="300"   class="d-block w-100" alt="...">
+    <img
+      src="https://localhost:44383/uploads/images/{{ carDetailDto.imagePath }}"
+      height="300"
+      width="700"
+      class="d-block w-100"
+      alt="..."
+    />
     <div class="card-body d-flex flex-column align-items-center">
-      <h5 class="card-title text-center app__card-title text-light">{{carDetailDto.brandName}}  {{carDetailDto.modelName}}</h5>
-      <p class="card-text text-center text-light">{{carDetailDto.colorName}}</p>
-      <p class="card-text text-center text-light">{{carDetailDto.modelYear}}</p>
-      <p class="card-text text-center app__card-price text-light">{{carDetailDto.dailyPrice}} ₺</p>
-      <a routerLink="/car/{{carDetailDto.id}}" class="btn btn-secondary"  >View More</a>
+      <ul class="list-group">
+        <li class="list-group-item bg-light">
+          Brand : {{ carDetailDto.brandName }} {{ carDetailDto.modelName }}
+        </li>
+        <li class="list-group-item bg-light">
+          Color :{{ carDetailDto.colorName }}
+        </li>
+        <li class="list-group-item bg-light">
+          Model Year: {{ carDetailDto.modelYear }}
+        </li>
+        <li class="list-group-item bg-success">
+          Daily Price: {{ carDetailDto.dailyPrice }},00 ₺
+        </li>
+
+        <a routerLink="car/{{ carDetailDto.id }}" class="btn btn-secondary"
+          >Detail</a
+        >
+      </ul>
     </div>
   </div>
-</div> 
+</div>
